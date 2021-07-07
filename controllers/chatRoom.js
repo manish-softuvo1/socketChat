@@ -30,6 +30,7 @@ export default {
           const { userId: chatInitiator } = req;
 
           const allUserIds = [ ...userIds, chatInitiator ];
+          console.log("allUserIds", allUserIds)
           const chatRoom = await ChatRoomModel.initiateChat(allUserIds,  chatInitiator)
           return res.status(200).json({
             success: true,
@@ -165,6 +166,7 @@ export default {
         const result = await ChatMessageModel.markMessageRead(roomId, currentLoggedUser);
         console.log("roomId", roomId);
         console.log("currentLoggedUser", currentLoggedUser)
+        console.log("result", result)
         return res.status(200).json({
           success: true,
           data : result
