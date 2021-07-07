@@ -29,7 +29,6 @@ export const decode = (req, res, next) => {
   try {
     const decoded = jwt.verify(accessToken, SECRET_KEY);
     req.userId = decoded.userId;
-    req.userType = decoded.type;
     return next();
   } catch (error) {
 
